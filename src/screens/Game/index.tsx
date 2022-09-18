@@ -19,8 +19,6 @@ export function Game() {
   const navigation = useNavigation();
   const route = useRoute();
   const game = route.params as GameParams;
-  console.log("game");
-  console.log(game);
 
   function handleGoBack() {
     navigation.goBack();
@@ -52,12 +50,7 @@ export function Game() {
           data={duos}
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
-            <DuoCard
-              data={item}
-              onConnect={() => {
-                console.log("modal");
-              }}
-            />
+            <DuoCard data={item} onConnect={() => {}} />
           )}
           horizontal
           style={[styles.containerList]}
