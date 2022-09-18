@@ -1,5 +1,5 @@
 import { styles } from "./styles";
-import { TouchableOpacity, View, Image, FlatList } from "react-native";
+import { TouchableOpacity, View, Image, FlatList, Text } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { GameParams } from "../../@types/navigation";
@@ -60,9 +60,16 @@ export function Game() {
             />
           )}
           horizontal
-          style={styles.containerList}
-          contentContainerStyle={styles.contentList}
+          style={[styles.containerList]}
           showsHorizontalScrollIndicator={false}
+          contentContainerStyle={[
+            duos.length > 0 ? styles.contentList : styles.emptyListContent,
+          ]}
+          ListEmptyComponent={() => (
+            <Text style={styles.emptyListText}>
+              Não há anúncios publicados ainda.
+            </Text>
+          )}
         />
       </SafeAreaView>
     </Background>
